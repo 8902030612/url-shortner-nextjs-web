@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col lg:flex-row bg-[url('/bg.svg')] bg-cover bg-bottom">
+      <main className="flex flex-col lg:flex-row bg-[url('/bg.svg')] bg-cover bg-bottom h-[calc(100vh_-_122px)]">
         <div className="flex lg:flex-1 items-center justify-center flex-col">
           <div className="my-10 lg:my-0 px-5">
             <h1 className="text-7xl font-light text-[#071a28]">
@@ -37,7 +37,7 @@ export default function Home() {
                 alt="logo"
                 className="bg-[#72c696] p-5 rounded-xl"
               />
-              <h3 className="text-xl font-medium mt-6 text-[#0e3552]">
+              <h3 className="text-xl font-semibold mt-6 text-[#0e3552]">
                 Make a magic link:
               </h3>
               <UrlForm />

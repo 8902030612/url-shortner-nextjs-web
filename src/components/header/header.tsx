@@ -11,8 +11,8 @@ export default function header() {
             <Image
               alt=""
               src="/logo.png"
-              width="70"
-              height="70"
+              width="50"
+              height="50"
               className="d-inline-block align-top"
             />{" "}
             <span className={`fs-4 ${styles.vdg_logo}`}>
