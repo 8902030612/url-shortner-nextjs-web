@@ -48,8 +48,8 @@ export default function UrlForm() {
     reset();
   };
   return (
-    <div>
-      <form action="" className="flex w-full gap-6 m-6">
+    <div className="m-6">
+      <form action="" className="flex w-full gap-6 mb-2">
         <Input
           isRequired
           type="url"
@@ -70,7 +70,7 @@ export default function UrlForm() {
         <Button
           type="submit"
           radius="full"
-          variant="flat"
+          variant="shadow"
           color="success"
           isIconOnly
           isLoading={isLoading}

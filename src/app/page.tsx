@@ -2,6 +2,7 @@ import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import UrlForm from "@/components/ui/urlForm";
 import Image from "next/image";
+import { Card, CardBody } from "@nextui-org/react";
 
 export default function Home() {
   return (
@@ -23,19 +24,25 @@ export default function Home() {
         </div>
 
         <div className="flex lg:flex-1 items-center xs:justify-start lg:justify-center">
-          <div className="py-5 md:py-12 px-4 md:px-8 rounded-xl bg-white 2xl:w-7/12 xl:w-10/12 w-full lg:w-12/12 2xl:mr-40 xl:mr-30 lg:mr-14 mx-5 lg:mx-0 mb-10 lg:mb-0 mt:10 flex flex-col items-center">
-            <Image
-              src="/link.png"
-              width="80"
-              height="80"
-              alt="logo"
-              className="bg-[#d3ebdc] p-5 rounded-xl opacity-70"
-            />
-            <h3 className="text-xl font-medium mt-6 text-[#0e3552]">
-              Make a magic link:
-            </h3>
-            <UrlForm />
-          </div>
+          <Card
+            isBlurred
+            className="py-5 md:py-12 px-4 md:px-8 rounded-xl bg-background/80 dark:bg-default-100/50 2xl:w-7/12 xl:w-10/12 w-full lg:w-12/12 2xl:mr-40 xl:mr-30 lg:mr-14 mx-5 lg:mx-0 mb-10 lg:mb-0 mt:10 flex flex-col"
+            shadow="sm"
+          >
+            <CardBody className="items-center">
+              <Image
+                src="/link.png"
+                width="80"
+                height="80"
+                alt="logo"
+                className="bg-[#72c696] p-5 rounded-xl"
+              />
+              <h3 className="text-xl font-medium mt-6 text-[#0e3552]">
+                Make a magic link:
+              </h3>
+              <UrlForm />
+            </CardBody>
+          </Card>
         </div>
       </main>
 
