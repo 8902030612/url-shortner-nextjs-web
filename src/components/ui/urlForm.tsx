@@ -3,7 +3,7 @@ import { ApiResponse, Params, ServerError, urlShort } from "@/services/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input, Button, Snippet } from "@nextui-org/react";
 import Link from "next/link";
-
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { FaArrowRight, FaLink, FaPaste } from "react-icons/fa6";
 import { useMutation } from "react-query";
@@ -37,11 +37,11 @@ export default function UrlForm() {
   } = useForm<FormInput>({
     resolver: zodResolver(schema),
   });
-  const { mutateAsync: uploadMutation, data: res, isLoading } = useMutation<
-    ApiResponse,
-    ServerError,
-    Params
-  >(urlShort);
+  const {
+    mutateAsync: uploadMutation,
+    data: res,
+    isLoading,
+  } = useMutation<ApiResponse, ServerError, Params>(urlShort);
   const submit = async (data: FormInput) => {
     console.log("addProfileParams", data);
     uploadMutation(data);
@@ -49,15 +49,15 @@ export default function UrlForm() {
   };
   return (
     <div>
-      <form action="" className="flex w-full gap-6">
-        <Input        
+      <form action="" className="flex w-full gap-6 m-6">
+        <Input
           isRequired
           type="url"
           label="Url"
           className="mb-3"
           placeholder="https://google.com"
           variant="underlined"
-          color="success"          
+          color="success"
           isInvalid={!!errors.url}
           errorMessage={errors.url && `${errors.url.message}`}
           classNames={{
@@ -68,7 +68,7 @@ export default function UrlForm() {
         />
 
         <Button
-          type="button"
+          type="submit"
           radius="full"
           variant="flat"
           color="success"

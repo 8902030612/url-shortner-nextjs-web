@@ -5,7 +5,7 @@ import styles from "./header.module.scss";
 export default function header() {
   return (
     <header>
-      <nav className="bg-gray-300 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 ">
+      <nav className={`bg-[#f8f9fa] border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800 ${styles.header} `}>
         <div className="flex flex-wrap justify-center items-center mx-auto max-w-screen-xl">
           <a href="https://veridocglobal.com/" className="flex items-center">
             <Image

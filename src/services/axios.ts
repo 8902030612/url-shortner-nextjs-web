@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000";
-
 export type Params = {
   url: string;
 };
@@ -20,7 +18,7 @@ export type ApiResponse = {
 
 export const urlShort = async ( url : Params) => {
   try {
-    const res = await axios.post(API_BASE_URL, url);
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}`, url);
     console.log(res.data);
     
     return res.data;
