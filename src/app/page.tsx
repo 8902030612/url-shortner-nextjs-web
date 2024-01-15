@@ -1,7 +1,7 @@
 import styles from "@/app/styles/index.module.scss";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
-import UrlForm from "@/components/urlForm";
+import UrlForm from "@/components/ui/urlForm";
 
 export default function Home() {
   return (
