@@ -1,5 +1,5 @@
-import Header from "@/components/header/header";
-import Footer from "@/components/footer/footer";
+import Header from "@/components/core/header/header";
+import Footer from "@/components/core/footer/footer";
 import UrlForm from "@/components/ui/urlForm";
 import Image from "next/image";
 import { Card, CardBody } from "@nextui-org/react";

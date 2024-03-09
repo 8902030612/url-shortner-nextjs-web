@@ -1,11 +1,10 @@
 "use client";
 import { ApiResponse, Params, ServerError, urlShort } from "@/services/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input, Button, Snippet } from "@nextui-org/react";
-import Link from "next/link";
-import Image from "next/image";
+import { Input, Button, Snippet, Link } from "@nextui-org/react";
+import { MdAnalytics } from "react-icons/md";
 import { useForm } from "react-hook-form";
-import { FaArrowRight, FaLink, FaPaste } from "react-icons/fa6";
+import { FaArrowRight, FaLink } from "react-icons/fa6";
 import { useMutation } from "react-query";
 import { ZodType, z } from "zod";
 
@@ -43,7 +42,7 @@ export default function UrlForm() {
     isLoading,
   } = useMutation<ApiResponse, ServerError, Params>(urlShort);
   const submit = async (data: FormInput) => {
-    console.log("addProfileParams", data);
+    // console.log("addProfileParams", data);
     uploadMutation(data);
     reset();
   };
@@ -82,15 +81,34 @@ export default function UrlForm() {
         </Button>
       </form>
       {res ? (
-        <Snippet hideSymbol size="md" color="success" variant="bordered">
-          <Link
-            target="_blank"
-            href={res.ShortUrl}
-            className="flex justify-center items-center gap-2"
+        <div className="flex justify-center items-center gap-3">
+          <Snippet
+            hideSymbol
+            size="md"
+            color="success"
+            variant="bordered"
+            radius="sm"
           >
-            <FaLink /> {res.ShortUrl}
-          </Link>
-        </Snippet>
+            <Link
+              target="_blank"
+              href={res.ShortUrl}
+              className="flex justify-center items-center gap-2 text-success"
+            >
+              <FaLink /> {res.ShortUrl}
+            </Link>
+          </Snippet>
+          <Button
+            radius="sm"
+            variant="flat"
+            color="success"
+            as={Link}
+            target="_blank"
+            href={`/analytics/${res.ShortId}`}
+          >
+            <MdAnalytics />
+            Analytics
+          </Button>
+        </div>
       ) : null}
     </div>
   );
