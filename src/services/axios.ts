@@ -31,8 +31,8 @@ export const urlShort = async (url: Params) => {
 };
 
 // getAnalytics
-export type AnalyticsParams = {
-  shortId: string;
+export type AnalyticsBody = {
+  shortUrl: string;
 };
 
 export interface AnalyticResp {
@@ -52,10 +52,11 @@ export interface Analytic {
   _id: string;
 }
 
-export const getAnalytics = async ({ shortId }: AnalyticsParams) => {
+export const getAnalytics = async ({ shortUrl }: AnalyticsBody) => {
   return await axios
-    .get<AnalyticResp>(
-      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/analytics/${shortId}`
+    .post<AnalyticResp>(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/analytics/`,
+      { shortUrl }
     )
     .then((res) => res.data);
 };

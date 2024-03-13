@@ -1,14 +1,16 @@
-import Header from "@/components/core/header/header";
 import Footer from "@/components/core/footer/footer";
-import UrlForm from "@/components/ui/urlForm";
+import Header from "@/components/core/header/header";
+import Loading from "@/components/core/loading";
 import Image from "next/image";
-import { Card, CardBody } from "@nextui-org/react";
+import AnalyticsSection from "@/components/ui/analyticsSection";
+import { Card, CardBody, Progress } from "@nextui-org/react";
+import React, { Suspense } from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Analytics",
 };
-export default function Home() {
+export default function Analytics() {
   return (
     <>
       <Header />
@@ -34,22 +36,14 @@ export default function Home() {
             shadow="sm"
           >
             <CardBody className="items-center">
-              <Image
-                src="/link.png"
-                width="80"
-                height="80"
-                alt="logo"
-                className="bg-[#72c696] p-5 rounded-xl"
-              />
               <h3 className="text-xl font-semibold mt-6 text-[#0e3552]">
-                Make a magic link:
+                Get Analytics
               </h3>
-              <UrlForm />
+              <AnalyticsSection />
             </CardBody>
           </Card>
         </div>
       </main>
-
       <Footer />
     </>
   );

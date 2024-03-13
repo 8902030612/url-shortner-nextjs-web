@@ -6,7 +6,10 @@ import { Providers } from "@/utils/provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "VeriDoc UrlShortner App",
+  title: {
+    template: "%s | VeriDoc URL Shortner",
+    default: "VeriDoc URL Shortner",
+  },
 };
 
 export default function RootLayout({
@@ -17,9 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
