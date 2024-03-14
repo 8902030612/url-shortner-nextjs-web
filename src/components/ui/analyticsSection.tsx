@@ -82,16 +82,6 @@ export default function AnalyticsSection() {
     return dateTime.toLocaleString();
   }
 
-  // const { data } = useQuery<AnalyticResp>(
-  //   ["getAnalytics"],
-  //   () => getAnalytics({ shortId }),
-  //   {
-  //     onSuccess: () => {
-  //       console.log("Analytics generated successfully!");
-  //     },
-  //   }
-  // );
-
   const mappedData =
     data &&
     data.visitHistory.analytics.map((item: Analytic) => ({

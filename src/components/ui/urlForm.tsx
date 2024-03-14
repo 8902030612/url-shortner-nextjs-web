@@ -97,17 +97,6 @@ export default function UrlForm() {
               <FaLink /> {res.ShortUrl}
             </Link>
           </Snippet>
-          <Button
-            radius="sm"
-            variant="flat"
-            color="success"
-            as={Link}
-            target="_blank"
-            href={`/analytics/${res.ShortId}`}
-          >
-            <MdAnalytics />
-            Analytics
-          </Button>
         </div>
       ) : null}
     </div>
