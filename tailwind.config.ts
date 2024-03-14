@@ -9,15 +9,42 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    container: {
+      screens: {
+        DEFAULT: "100%",
+        sm: "960px ",
+        lg: "1140px ",
+        xl: "1320px ",
+        "2xl": "1600px",
+      },
+      padding: {
+        DEFAULT: "10px",
+        sm: "10px",
+        lg: "10px",
+        xl: "10px",
+        "2xl": "10px",
+      },
+    },
+
     fontFamily: {
       roboto: ["Roboto", ...defaultTheme.fontFamily.sans],
     },
     extend: {
       screens: {
+        desktop: { max: "1799px" },
+        // => @media (max-width: 1799px) { ... }
+        laptop: { max: "1200px" },
+        // => @media (min-width: 1280px) { ... }
         tab: { max: "991px" },
         // => @media (max-width: 991px) { ... }
         mob: { max: "767px" },
         // => @media (max-width: 767px) { ... }
+        smMob: { max: "575px" },
+        // => @media (max-width: 575px) { ... }
+        xmob: { max: "480px" },
+        // => @media (max-width: 480px) { ... }
+        xsmob: { max: "425px" },
+        // => @media (max-width: 425px) { ... }
         medium: { min: "992px", max: "1240px" },
         // => @media (min-width: 768px and max-width: 1023px) { ... }
       },

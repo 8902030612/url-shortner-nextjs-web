@@ -8,3 +8,10 @@ export const columns = [
     label: "IP Address",
   },
 ];
+
+export const navItems = [
+  { title: "Home", link: "/" },
+  { title: "Analytics", link: "/analytics" },
+  { title: "About", link: "#" },
+  { title: "Contact", link: "#" },
+];

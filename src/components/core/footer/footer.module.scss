@@ -1,3 +1,13 @@
 .footerMain {
-  @apply bg-black text-center lg:text-left;
+  @apply bg-black;
+}
+.vdg_logo {
+  @apply font-black text-2xl text-white;
+  .vdg_logo_gradient {
+    @apply italic pr-3;
+    background: linear-gradient(to right, #00843f, #9ac341);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
