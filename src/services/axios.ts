@@ -1,13 +1,15 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import toast from "react-hot-toast";
 
 export type Params = {
   url: string;
+  customSlug?: string;
 };
 
 export type ServerError = {
   message: string;
   error: string;
-  StatusCode: number;
+  statusCode: number;
 };
 export type ApiResponse = {
   message: string;
@@ -17,16 +19,28 @@ export type ApiResponse = {
 };
 
 export const urlShort = async (url: Params) => {
-  try {
-    const res = await axios.post(
+  return await axios
+    .post<ApiResponse, AxiosResponse<ApiResponse>, Params>(
       `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}`,
       url
-    );
-    // console.log(res.data);
+    )
+    .then((res) => res.data);
+};
 
+export const CustomSlugURIShort = async ({ url, customSlug }: Params) => {
+  try {
+    const res = await axios.post<
+      ApiResponse,
+      AxiosResponse<ApiResponse>,
+      Params
+    >(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/customSlug`, {
+      url,
+      customSlug,
+    });
     return res.data;
   } catch (error) {
-    console.error(error);
+    const err = error as AxiosError<ServerError>;
+    toast.error(err.response?.data.message as string);
   }
 };
 
